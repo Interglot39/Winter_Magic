@@ -62,7 +62,6 @@ AddEventHandler("winter_magic:magicTeleport", function()
 				end)
 			end
 		end
-		--TriggerEvent('dps_sound:playSoundInArea', 'thunder', 0.1, 10.0)
 		SetEntityCoords(pId, coordsEscena.x, coordsEscena.y, coordsEscena.z, 0.0, 0.0, 0.0, false)
 	end
 end)
