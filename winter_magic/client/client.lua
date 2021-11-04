@@ -48,14 +48,10 @@ AddEventHandler("winter_magic:magicTeleport", function()
 				Citizen.SetTimeout(900, function()
 					RequestAnimDict2(dict, function()
 						TaskPlayAnim(pId, dict, "bar_1_attack_idle_aln", 1.0, 1.0, -1, 7, 0.0, false, false, false)
-						UseParticleFxAssetNextCall("core")
 						Citizen.SetTimeout(1400, function()
 							local boneCoords = nil
 							boneCoords = GetPedBoneCoords(pId, 11816, -0.9, 1.0, 0.0) -- Pain in the ass
-							SendNUIMessage({sound = "thunder", volume = 0.2})
-							Citizen.SetTimeout(500, function()
-								StartParticleFxLoopedAtCoord("exp_xs_ray", boneCoords.x, boneCoords.y, boneCoords.z, 0.0, 0.0, 0.0, 0.8, false, false, false)
-							end)
+							TriggerServerEvent("winter_magic:particleS", boneCoords)
 						end)
 					end)
 					Citizen.SetTimeout(tiempo - 600, function() doing = false end)
@@ -64,6 +60,21 @@ AddEventHandler("winter_magic:magicTeleport", function()
 		end
 		SetEntityCoords(pId, coordsEscena.x, coordsEscena.y, coordsEscena.z, 0.0, 0.0, 0.0, false)
 	end
+end)
+
+RegisterNetEvent("winter_magic:particleC")
+AddEventHandler("winter_magic:particleC", function(boneCoords)
+	local pIdCoords = GetEntityCoords(PlayerPedId())
+	local distance = #(boneCoords - pIdCoords)
+		if distance <= 30 then
+			SendNUIMessage({sound = "thunder", volume = 0.2})
+		end
+		if distance <= 300 then
+			Citizen.SetTimeout(500, function()
+				UseParticleFxAssetNextCall("core")
+				StartParticleFxLoopedAtCoord("exp_xs_ray", boneCoords.x, boneCoords.y, boneCoords.z, 0.0, 0.0, 0.0, 0.8, false, false, false)
+			end)
+		end
 end)
 
 function RequestAnimDict2(animDict, cb) -- Not neccesary, i know but LMAO
