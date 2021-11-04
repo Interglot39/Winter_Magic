@@ -31,7 +31,7 @@ AddEventHandler("winter_magic:magicTeleport", function()
 			learning = false
 		end
 	end
-	if coordsEscena ~= nil then
+	if coordsEscena ~= vector3(0,0,0) then
 		local done = false
 		local doing = true
 		local tiempo = 3000
