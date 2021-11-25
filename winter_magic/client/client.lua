@@ -42,7 +42,7 @@ AddEventHandler("winter_magic:magicTeleport", function()
 			if not done then
 				pId = PlayerPedId()
 				done = true 
-				exports['pogressBar']:drawBar(tiempo, "Casting spell")
+				progressBar(tiempo, "Casting spell")
 				local dict = "rcmbarry"
 				TaskTurnPedToFaceCoord(pId, coordsEscena.x, coordsEscena.y, coordsEscena.z, 1000)
 				Citizen.SetTimeout(900, function()
@@ -102,4 +102,10 @@ function getCoordsFromCam(distance, coords)
     local adjustedRotation = vector3((math.pi / 180) * rotation.x, (math.pi / 180) * rotation.y, (math.pi / 180) * rotation.z)
     local direction = vector3(-math.sin(adjustedRotation[3]) * math.abs(math.cos(adjustedRotation[1])), math.cos(adjustedRotation[3]) * math.abs(math.cos(adjustedRotation[1])), math.sin(adjustedRotation[1]))
     return vector3(coords[1] + direction[1] * distance, coords[2] + direction[2] * distance, coords[3] + direction[3] * distance)
+end
+
+function progressBar(time, text) 
+	if Config.ProgressBar then
+		exports['pogressBar']:drawBar(time, text)
+	end
 end
