@@ -358,4 +358,4 @@ end, false)
 RegisterCommand("healorb", function()
 	TriggerEvent("winter_magic:healOrbC")
 end, false)
-end
+
