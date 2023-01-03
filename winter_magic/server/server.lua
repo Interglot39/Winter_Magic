@@ -32,49 +32,49 @@ Citizen.CreateThread(function()
             local pSource = source
             local xPlayer = ESX.GetPlayerFromId(pSource)
             TriggerClientEvent("winter_magic:magicTeleport", pSource)
-            xPlayer.removeInventoryItem(item, 1)
+            xPlayer.removeInventoryItem("tpOrb", 1)
         end)
 
         ESX.RegisterUsableItem('tpOrb2', function(source)
             local pSource = source
             local xPlayer = ESX.GetPlayerFromId(pSource)
             TriggerClientEvent("winter_magic:magicTeleportFlame", pSource)
-            xPlayer.removeInventoryItem(item, 1)
+            xPlayer.removeInventoryItem("tpOrb2", 1)
         end)
 
         ESX.RegisterUsableItem('tpOrb3', function(source)
             local pSource = source
             local xPlayer = ESX.GetPlayerFromId(pSource)
             TriggerClientEvent("winter_magic:magicTeleportSmoke", pSource)
-            xPlayer.removeInventoryItem(item, 1)
+            xPlayer.removeInventoryItem("tpOrb3", 1)
         end)
 
         ESX.RegisterUsableItem('fireball', function(source)
             local pSource = source
             local xPlayer = ESX.GetPlayerFromId(pSource)
             TriggerClientEvent("winter_magic:magicFlamethrower", pSource)
-            xPlayer.removeInventoryItem(item, 1)
+            xPlayer.removeInventoryItem("fireball", 1)
         end)
 
         ESX.RegisterUsableItem('levitateOrb', function(source)
             local pSource = source
             local xPlayer = ESX.GetPlayerFromId(pSource)
             TriggerClientEvent("winter_magic:levitate", pSource)
-            xPlayer.removeInventoryItem(item, 1)
+            xPlayer.removeInventoryItem("levitateOrb", 1)
         end)
 
         ESX.RegisterUsableItem('healOrb', function(source)
             local pSource = source
             local xPlayer = ESX.GetPlayerFromId(pSource)
             TriggerClientEvent("winter_magic:healOrbC", pSource)
-            xPlayer.removeInventoryItem(item, 1)
+            xPlayer.removeInventoryItem("healOrb", 1)
         end)
 
         ESX.RegisterUsableItem('reviveOrb', function(source)
             local pSource = source
             local xPlayer = ESX.GetPlayerFromId(pSource)
             TriggerClientEvent("winter_magic:reviveOrbC", pSource)
-            xPlayer.removeInventoryItem(item, 1)
+            xPlayer.removeInventoryItem("reviveOrb", 1)
         end)
     end
 end)
