@@ -81,7 +81,7 @@ AddEventHandler("winter_magic:magicTeleport", function()
 	local coordsEscena = getCoordsBall() 
 	local size = nil
 	local learning = true
-	if coordsEscena ~= vector3(0,0,0) then
+	if coordsEscena ~= vector3(0,0,0) and coordsEscena ~= nil then
 		local done = false
 		local doing = true
 		local tiempo = 3000
@@ -120,7 +120,7 @@ AddEventHandler("winter_magic:magicTeleportFlame", function()
 	local coordsEscena = getCoordsBall() 
 	local size = nil
 	local learning = true
-	if coordsEscena ~= vector3(0,0,0) then
+	if coordsEscena ~= vector3(0,0,0) and coordsEscena ~= nil then
 		local done = false
 		local doing = true
 		local tiempo = 3000
@@ -159,7 +159,7 @@ AddEventHandler("winter_magic:magicTeleportSmoke", function()
 	local coordsEscena = getCoordsBall() 
 	local size = nil
 	local learning = true
-	if coordsEscena ~= vector3(0,0,0) then
+	if coordsEscena ~= vector3(0,0,0) and coordsEscena ~= nil then
 		local done = false
 		local doing = true
 		local tiempo = 3000
