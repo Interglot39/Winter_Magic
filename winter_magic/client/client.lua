@@ -198,6 +198,8 @@ AddEventHandler("winter_magic:reviveOrbC", function(coords, timeout)
 	local close = false
 	local time = true
 	local waitTime = 2000
+	if not coords then coords = GetEntityCoords(PlayerPedId()) end
+	if not timeout then timeout = 6000 end
 	Citizen.SetTimeout(timeout, function() time = false end)
 	while time do
 		Citizen.Wait(waitTime)
@@ -224,6 +226,8 @@ AddEventHandler("winter_magic:healOrbC", function(coords, timeout)
 	local close = false
 	local time = true
 	local waitTime = 2000
+	if not coords then coords = GetEntityCoords(PlayerPedId()) end
+	if not timeout then timeout = 6000 end
 	Citizen.SetTimeout(timeout, function() time = false end)
 	while time do
 		pId = PlayerPedId()
