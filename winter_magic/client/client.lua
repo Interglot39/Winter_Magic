@@ -92,7 +92,6 @@ AddEventHandler("winter_magic:magicTeleport", function()
 			if not done then
 				pId = PlayerPedId()
 				done = true 
-				exports['pogressBar']:drawBar(tiempo, "Casting spell")
 				local dict = "rcmbarry"
 				TaskTurnPedToFaceCoord(pId, coordsEscena.x, coordsEscena.y, coordsEscena.z, 1000)
 				Citizen.SetTimeout(900, function()
@@ -131,7 +130,6 @@ AddEventHandler("winter_magic:magicTeleportFlame", function()
 			if not done then
 				pId = PlayerPedId()
 				done = true 
-				exports['pogressBar']:drawBar(tiempo, "Casting spell")
 				local dict = "rcmbarry"
 				TaskTurnPedToFaceCoord(pId, coordsEscena.x, coordsEscena.y, coordsEscena.z, 1000)
 				Citizen.SetTimeout(900, function()
@@ -170,7 +168,6 @@ AddEventHandler("winter_magic:magicTeleportSmoke", function()
 			if not done then
 				pId = PlayerPedId()
 				done = true 
-				exports['pogressBar']:drawBar(tiempo, "Casting spell")
 				local dict = "rcmbarry"
 				TaskTurnPedToFaceCoord(pId, coordsEscena.x, coordsEscena.y, coordsEscena.z, 1000)
 				Citizen.SetTimeout(900, function()
