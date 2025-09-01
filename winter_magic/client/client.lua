@@ -45,8 +45,7 @@ AddEventHandler("winter_magic:magicFlamethrower", function()
 	Citizen.Wait(50)	
 	SetPlayerInvincible(PlayerPedId(), true) 
 	while IsEntityPlayingAnim(pId, animDict, animName, 1) and uses < Config.FlameUses do
-		if IsControlJustReleased(0,38) and not cooldown then
-            print("uses",uses)
+		if IsControlJustReleased(0, Config.FlameThrowerKey) and not cooldown then
             uses = uses + 1
 			pId = PlayerPedId()
 			cooldown = true
@@ -294,29 +293,29 @@ function getCoordsBall()
     local size = 0.5
     local pId = PlayerPedId()
     local pIdCoords = GetEntityCoords(pId)
-	while learning do 
-        pId = PlayerPedId()
-        pIdCoords = GetEntityCoords(pId)
-		Citizen.Wait(5)
-		local pEscena = getCoordsScene()
-		if pEscena ~= nil then 
-			distance = #(pEscena - pIdCoords)
-			if distance < 30 then
-				size = 0.1
-			elseif distance > 30 and distance  < 90 then
-				size = 0.2
-			else
-				size = 0.4
+		while learning do 
+					pId = PlayerPedId()
+					pIdCoords = GetEntityCoords(pId)
+			Citizen.Wait(0)
+			local pEscena = getCoordsScene()
+			if pEscena ~= nil then 
+				distance = #(pEscena - pIdCoords)
+				if distance < 30 then
+					size = 0.1
+				elseif distance > 30 and distance  < 90 then
+					size = 0.2
+				else
+					size = 0.4
+				end
+				DrawMarker(28, pEscena.x, pEscena.y, pEscena.z, 0, 0, 0, 0, 0, 0, size, size, size, 35, 150, 200, 255, false, false)
 			end
-			DrawMarker(28, pEscena.x, pEscena.y, pEscena.z, 0, 0, 0, 0, 0, 0, size, size, size, 35, 150, 200, 255, false, false)
+			if IsControlJustReleased(0, Config.PerformActionKey) then 
+				learning = false
+				return pEscena
+			elseif IsControlJustReleased(0, Config.CancelActionKey) or IsControlJustReleased(0, Config.CancelActionKey2) then
+				learning = false
+			end
 		end
-		if IsControlJustReleased(0, 191) then 
-			learning = false
-			return pEscena
-		elseif IsControlJustReleased(0, 73) or IsControlJustReleased(0, 177) then
-			learning = false
-		end
-	end
 end
 
 function getCoordsScene()
@@ -359,4 +358,3 @@ end, false)
 RegisterCommand("healorb", function()
 	TriggerEvent("winter_magic:healOrbC")
 end, false)
-

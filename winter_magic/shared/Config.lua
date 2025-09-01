@@ -19,3 +19,9 @@ Config.ReviveTime = 1000*5
 Config.HealDistance = 5.0
 Config.HealTimeInterval = 1000*2
 Config.HPHeal = 25
+
+-- Keys for selecting the coordinates, if you want to change them --> https://docs.fivem.net/docs/game-references/controls/
+Config.PerformActionKey = 191 -- ENTER
+Config.CancelActionKey = 177 -- BACKSPACE 
+Config.CancelActionKey2 = 73 -- X
+Config.FlameThrowerKey = 38 -- E
